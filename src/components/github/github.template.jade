@@ -1,0 +1,17 @@
+ion-header-bar.bar-positive
+	div.title(ng-bind="NavTitle")
+ion-view(align-title="center")
+	ion-nav-bar.bar-positive
+		ion-nav-back-button
+	ion-content
+		div(ng-if="selected=='Users'")
+			div(ng-include="'components/partials/user.template.html'")
+		div(ng-if="selected=='Register'")
+			div(ng-include="'components/register/register.template.html'")
+				
+	ion-footer-bar		
+		ion-tabs.tabs-positive.tabs-icon-only			
+			ion-tab(title="User" icon-on="ion-ios-people" icon-off="ion-ios-people-outline"  ng-click="toggle('Users')")				
+						
+			ion-tab(title="Register" icon-on="ion-ios-locked" icon-off="ion-ios-locked-outline"  ng-click="toggle('Register')")   
+				

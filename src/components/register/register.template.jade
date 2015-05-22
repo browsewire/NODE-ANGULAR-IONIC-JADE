@@ -1,0 +1,25 @@
+div.row(ng-controller="RegisterCtrl")
+	div.list.col
+		form(name="userForm" ng-submit="register()")
+			label.item.item-input.item-stacked-label
+				span.input-label Email
+				input(type="email" ng-model="user.email" name="email" placeholder="Enter Email Here" required)
+				div(ng-show="userForm.$submitted || userForm.email.$touched")
+					span(ng-show="userForm.email.$error.required" ) Email is required
+					span(ng-show="userForm.email.$error.email") This is not a valid email
+			
+			label.item.item-input.item-stacked-label
+				span.input-label Password (* min length 6)
+				input(type="password" ng-model="user.password" name="password" placeholder="Enter Password" ng-minlength="6" required) 
+				div(ng-show="userForm.$submitted || userForm.password.$touched")
+					span(ng-show="userForm.password.$error.required" ) password is required
+					span(ng-show="userForm.password.$error.minlength") Password should have atleast 6 characters
+			
+			label.item.item-input.item-stacked-label
+				span.input-label Confirm Password
+				input(type="password" ng-model="user.confirmpass" name="confirmpass" placeholder="Confirm Password" confirm-password = "user.password" required)  
+				div(ng-show="userForm.$submitted || userForm.confirmpass.$touched")
+					span(ng-show="userForm.confirmpass.$error.required" ) Confirm  password is required
+					span(ng-show="userForm.confirmpass.$error.match") Password Not matching
+					
+			button.button.button-block.button-positive(ng-disabled="userForm.$invalid" type="submit")  Register			

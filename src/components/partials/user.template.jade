@@ -1,0 +1,6 @@
+div.row
+	div.list.col
+		a.item.item-avatar(ng-repeat="user in allusers")
+			img(src="{{user.avatar_url}}")
+			h2(ng-bind="user.login")
+			p(ng-bind="user.login") 
